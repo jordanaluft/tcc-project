@@ -20,3 +20,4 @@ class Lampada(models.Model):
     class Meta:
         verbose_name = "lâmpada"
         verbose_name_plural = "lâmpadas"
+        ordering = ['id']

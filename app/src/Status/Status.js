@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {
   Paper,
@@ -15,29 +15,15 @@ const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit * 3,
     marginLeft: theme.spacing.unit * 5,
-    width: "40%"
+    width: "1000%"
   },
   table: {
     minWidth: 250
   }
 });
 
-let id = 0;
-function createData(status) {
-  id += 1;
-  return { id, status };
-}
-
-const rows = [
-  createData("Funcionando"),
-  createData("Queimada"),
-  createData("Funcionando"),
-  createData("Funcionando"),
-  createData("Funcionando")
-];
-
 function Status(props) {
-  const { classes } = props;
+  const { classes, lampadas } = props;
 
   return (
     <Grid
@@ -47,8 +33,8 @@ function Status(props) {
       alignItems="center"
       justify="center"
     >
-      <Paper className={classes.root}>
-        <Table className={classes.table}>
+      <Paper>
+        <Table>
           <TableHead>
             <TableRow>
               <TableCell>Lamp Id</TableCell>
@@ -56,12 +42,12 @@ function Status(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map(row => (
-              <TableRow key={row.id}>
+            {lampadas.map(lampada => (
+              <TableRow key={lampada.id}>
                 <TableCell component="th" scope="row">
-                  {row.id}
+                  {lampada.id}
                 </TableCell>
-                <TableCell align="right">{row.status}</TableCell>
+                <TableCell align="right">{lampada.status}</TableCell>
               </TableRow>
             ))}
           </TableBody>

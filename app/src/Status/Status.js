@@ -18,7 +18,7 @@ const styles = theme => ({
     width: "40%"
   },
   table: {
-    minWidth: 250
+    minWidth: 450
   }
 });
 

@@ -8,9 +8,7 @@ STATUS_CHOICES = (
 
 class Lampada(models.Model):
     id = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False)
+        primary_key=True)
     status = models.CharField(max_length=30, choices=STATUS_CHOICES)
     intensity = models.PositiveSmallIntegerField()
     latitude = models.FloatField()

@@ -15,7 +15,7 @@ const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit * 3,
     marginLeft: theme.spacing.unit * 5,
-    width: "1000%"
+    width: "40%"
   },
   table: {
     minWidth: 250
@@ -33,7 +33,7 @@ function Status(props) {
       alignItems="center"
       justify="center"
     >
-      <Paper>
+      <Paper className={classes.root}>
         <Table>
           <TableHead>
             <TableRow>

@@ -1,9 +1,9 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import List from "./Status";
-import Map from "./Map";
-import New from "./New";
-import Menu from "./Menu";
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import List from './Status';
+import Map from './Map';
+import New from './New';
+import Menu from './Menu';
 
 const App = () => (
   <Router>

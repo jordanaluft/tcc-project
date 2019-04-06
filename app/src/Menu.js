@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Paper, Tabs, Tab } from "@material-ui/core";
-import PropTypes from "prop-types";
 
 class Menu extends React.Component {
   state = {
@@ -30,9 +29,5 @@ class Menu extends React.Component {
     );
   }
 }
-
-Menu.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default Menu;

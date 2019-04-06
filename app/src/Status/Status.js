@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Paper,
   TableRow,
@@ -8,18 +8,18 @@ import {
   TableBody,
   Table,
   withStyles,
-  Grid
-} from "@material-ui/core";
+  Grid,
+} from '@material-ui/core';
 
 const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit * 3,
     marginLeft: theme.spacing.unit * 5,
-    width: "40%"
+    width: '40%',
   },
   table: {
-    minWidth: 450
-  }
+    minWidth: 450,
+  },
 });
 
 function Status(props) {
@@ -58,7 +58,7 @@ function Status(props) {
 }
 
 Status.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Status);

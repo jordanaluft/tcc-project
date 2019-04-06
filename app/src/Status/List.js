@@ -5,24 +5,24 @@ import Status from "./Status";
 class List extends React.Component {
   state = {
     lampadas: [],
-    isLoadign: true,
+    isLoading: true,
     hasError: false
   };
 
   getData = () => {
-    this.setState({ isLoadign: true, hasError: false }, () => {
+    this.setState({ isLoading: true, hasError: false }, () => {
       this.request = axios
         .get("http://localhost:8000/lampadas")
         .then(response =>
           this.setState({
             lampadas: response.data,
-            isLoadign: false,
+            isLoading: false,
             hasError: false
           })
         )
         .catch(() =>
           this.setState({
-            isLoadign: false,
+            isLoading: false,
             hasError: true
           })
         );
@@ -38,7 +38,7 @@ class List extends React.Component {
 
     if (this.state.hasError) {
       content = "Piolho comeu o cabo do servidor";
-    } else if (this.state.isLoadign) {
+    } else if (this.state.isLoading) {
       content = "Loading...";
     } else {
       content = <Status lampadas={this.state.lampadas} />;

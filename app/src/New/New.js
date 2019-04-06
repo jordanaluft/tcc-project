@@ -8,7 +8,6 @@ import {
   withStyles,
   Input,
   Button,
-  TextField,
 } from '@material-ui/core';
 
 const styles = theme => ({
@@ -47,12 +46,13 @@ class New extends React.Component {
         isLoading: true,
         hasError: false,
       },
-      () =>
-        axios
+      () => {
+        const date = new Date();
+        return axios
           .post('http://localhost:8000/lampadas', {
             id: this.state.id,
-            intensity: 123,
-            last_ping: '0123-12-23T15:12:00-03:06',
+            intensity: 100,
+            last_ping: date.toISOString(),
             status: 'broken',
             latitude: this.state.latitude,
             longitude: this.state.longitude,
@@ -74,7 +74,8 @@ class New extends React.Component {
               isLoading: false,
               hasError: true,
             }),
-          ),
+          );
+      },
     );
   };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import MapRender from './MapRender';
+import Progress from '../Progress';
 
 class List extends React.Component {
   state = {
@@ -32,7 +33,7 @@ class List extends React.Component {
   }
 
   render() {
-    if (this.state.isLoading) return 'Loading...';
+    if (this.state.isLoading) return <Progress />;
     if (this.state.hasError) return 'Piolho comeu algo';
     return <MapRender lampadas={this.state.lampadas} />;
   }

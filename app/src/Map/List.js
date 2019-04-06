@@ -1,16 +1,30 @@
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
+import MapRender from './MapRender';
 
 class List extends React.Component {
   state = {
-    lampadas: []
+    lampadas: [],
+    isLoading: true,
+    hasError: false,
   };
 
   getData = () => {
-    axios.get("http://localhost:8000/lampadas").then(response => {
-      console.log(response);
-      this.setState({ lampadas: response.data });
-    });
+    axios
+      .get('http://localhost:8000/lampadas')
+      .then(response => {
+        this.setState({
+          lampadas: response.data,
+          isLoading: false,
+          hasError: false,
+        });
+      })
+      .catch(() =>
+        this.setState({
+          isLoading: false,
+          hasError: true,
+        }),
+      );
   };
 
   componentDidMount() {
@@ -18,15 +32,9 @@ class List extends React.Component {
   }
 
   render() {
-    return (
-      <ul>
-        {this.state.lampadas.map(lampada => (
-          <li key={lampada.id}>
-            {lampada.id} {lampada.latitude} {lampada.longitude}
-          </li>
-        ))}
-      </ul>
-    );
+    if (this.state.isLoading) return 'Loading...';
+    if (this.state.hasError) return 'Piolho comeu algo';
+    return <MapRender lampadas={this.state.lampadas} />;
   }
 }
 

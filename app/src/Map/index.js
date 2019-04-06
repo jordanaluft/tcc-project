@@ -1,1 +1,1 @@
-export { default } from "./MapRender";
+export { default } from "./List";

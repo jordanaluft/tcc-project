@@ -1,9 +1,10 @@
 import React from "react";
-import { Map } from "react-leaflet";
 import L from "leaflet";
 import styled from "styled-components";
 import { Grid, withStyles, Paper } from "@material-ui/core";
 import "leaflet/dist/leaflet.css";
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
 const styles = theme => ({
   root: {
@@ -21,9 +22,9 @@ const Wrapper = styled.div`
 
 class MapRender extends React.Component {
   componentDidMount() {
-    this.map = L.map("map", {
-      center: [58, 16],
-      zoom: 3,
+    const map = L.map("map", {
+      center: [-27.729579, -52.5357],
+      zoom: 16,
       zoomControl: false
     });
 
@@ -31,10 +32,25 @@ class MapRender extends React.Component {
       detectRetina: true,
       maxZoom: 20,
       maxNativeZoom: 17
-    }).addTo(this.map);
+    }).addTo(map);
+
+    let DefaultIcon = L.icon({
+      iconUrl: icon,
+      shadowUrl: iconShadow
+    });
+
+    this.props.lampadas.forEach(lampada => {
+      let latitude = lampada.latitude;
+      let longitude = lampada.longitude;
+      console.log(latitude);
+      L.Marker.prototype.options.icon = DefaultIcon;
+      L.marker([latitude, longitude]).addTo(map);
+    });
   }
+
   render() {
     const { classes } = this.props;
+
     return (
       <div>
         <Grid

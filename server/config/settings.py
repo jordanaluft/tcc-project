@@ -13,7 +13,9 @@ SECRET_KEY = 'xg^1ms3jlk13^_w!1-o4)$bl#=&tj#&dbpsqrs2)*e&$6*4365'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'smart-light-tcc.herokuapp.com',
+]
 
 
 # Application definition
